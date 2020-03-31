@@ -10,7 +10,7 @@ bool cekPanjang (string input);
 string hapusSpasi (string input);
 bool koreksi(int p, int q, int r, string input, int perulangan);
 bool bandingkan(int index, string input, int perulangan, bool hasil);
-void kebenaran();
+void kebenaran(bool x,bool y,bool z);
 
 int main(){
 	string input;
@@ -23,7 +23,6 @@ int main(){
 		if(!cekPanjang(input)){
 			cout<<"Anda tidak menginputkan Binary code dengan benar\nMohon inputkan kode biner dengan panjang kelipatan 7";
 		}else{
-			//mulai 
 			int ulang=input.length()/7;
 			int perulangan=ulang-1;
 			
@@ -36,7 +35,7 @@ int main(){
 				y=bandingkan(5, input, perulangan, y);
 				z=bandingkan(6, input, perulangan, z);
 				
-				kebenaran();
+				kebenaran(x,y,z);
 			}
 		}
 	}
@@ -89,19 +88,44 @@ bool koreksi(int p, int q, int r, string input, int perulangan){
 }
 
 bool bandingkan(int index, string input, int perulangan, bool hasil){
-//	cout<<input[(perulangan*7)+index];
-//	cout<<hasil<<'\n';
-	
 	bool hasil2=(input[(perulangan*7)+index]);
 	
 	if (hasil2 == hasil){
 		return true;
 	}else{
-//		cout<<hasil;
 		return false;
 	}
 }
 
-void kebenaran(){
-	
+void kebenaran(bool x,bool y,bool z){
+	if (x == 1){
+		if(y == 1){
+			if (z == 1){
+				//no error
+				cout<<"Tidak ada kode yang salah";
+			}else{
+				cout<<"Z error";
+			}
+		}else{
+			if (z == 1){
+				cout<<"Y error";
+			}else{
+				cout<<"C error";
+			}
+		}
+	}else{
+		if(y == 1){
+			if (z == 1){
+				cout<<"X error";
+			}else{
+				cout<<"B error";
+			}
+		}else{
+			if (z == 1){
+				cout<<"A error";
+			}else{
+				cout<<"D error";
+			}
+		}
+	}
 }
