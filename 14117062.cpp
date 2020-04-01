@@ -2,7 +2,6 @@
 14117062*/
 
 #include <iostream>
-#include <sstream>
 using namespace std;
 
 bool cekInput (string input);
@@ -18,11 +17,13 @@ int main(){
 		getline(cin,input);
 	
 	if (!cekInput(input)){
-		cout<<"Anda tidak menginputkan Binary code dengan benar\nMohon inputkan kode biner saja";
+		cout<<"Anda tidak menginputkan Binary code dengan benar\n";
+		cout<<"Mohon inputkan kode biner saja";
 	}else{
 		input = hapusSpasi(input);
 		if(!cekPanjang(input)){
-			cout<<"Anda tidak menginputkan Binary code dengan benar\nMohon inputkan kode biner dengan panjang kelipatan 7";
+			cout<<"Anda tidak menginputkan Binary code dengan benar\n";
+			cout<<"Mohon inputkan kode biner dengan panjang kelipatan 7";
 		}else{
 			int perulangan=(input.length()/7)-1;
 			
@@ -68,7 +69,7 @@ int main(){
 bool cekInput(string input){
 	for (int i=0; i<input.length();i++){
 		if (input[i]!='0' && input[i]!='1' && input[i]!=' '){
-			cout<<i;
+			
 			return false;
 		}
 	}return true;
